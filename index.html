@@ -113,6 +113,73 @@
           </p>
         </div>
       </section>
+
+      <!-- ==============================================
+  HERO / WELCOME
+  EN: Prominent intro with responsive image and short pitch.
+  SV: Tydlig introduktion med responsiv bild och kort budskap.
+================================================== -->
+<section class="hero py-5 bg-light">
+  <div class="container">
+    <div class="row align-items-center g-4">
+      
+      <!-- TEXT COLUMN -->
+      <!-- EN: Primary message; short and scannable.
+           SV: Huvudbudskap; kort och lätt att överblicka. -->
+      <div class="col-12 col-lg-6">
+        <h1 class="display-5 fw-bold mb-3">
+          Välkommen till Kafé Sjöstugan
+        </h1>
+        <p class="lead mb-4">
+          Ekologiskt kafé vid Brunnsviken – bullar, soppor, sallader, musik och kurser.
+        </p>
+        <div class="d-flex gap-3">
+          <!-- EN: Clear primary action; adjust targets later.
+               SV: Tydlig primär åtgärd; justera länkarna senare. -->
+          <a class="btn btn-primary btn-lg" href="meny.html">Se meny</a>
+          <a class="btn btn-outline-secondary btn-lg" href="boka.html">Boka lokal</a>
+        </div>
+      </div>
+
+      <!-- IMAGE COLUMN -->
+      <!-- EN: Responsive picture; provide mobile/desktop sources with proper alt.
+           SV: Responsiv bild; mobila/desktop-källor med korrekt alt-text. -->
+      <div class="col-12 col-lg-6">
+        <picture>
+          <!-- EN: Mobile-first source (≤576px/≤768px).
+               SV: Mobilkälla (≤576px/≤768px). -->
+          <source srcset="assets/images/hero-600.jpg" media="(max-width: 768px)">
+          <!-- EN: Default/desktop fallback.
+               SV: Standard/desktop fallback. -->
+          <img 
+            src="assets/images/hero-1200.jpg" 
+            class="img-fluid rounded-3 shadow-sm" 
+            alt="Uteservering vid Kafé Sjöstugan intill vattnet i Brunnsviken">
+        </picture>
+        <!-- EN: Optional small caption for context.
+             SV: Valfri liten bildtext för sammanhang. -->
+        <p class="hero-caption text-muted small mt-2">
+          Närodlat, hembakat och gemenskap i Nationalstadsparken.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============
+  INTRO SNIPPET (short supporting paragraph)
+  EN: Keep copy concise for readability.
+  SV: Håll texten kort för läsbarhet.
+============= -->
+<section class="py-4">
+  <div class="container">
+    <p class="mb-0">
+      Vi bakar och lagar det mesta själva med ekologiska och rättvisemärkta råvaror.
+      Följ oss för aktuella öppettider, evenemang och kurser.
+    </p>
+  </div>
+</section>
+
     </main>
 
     <footer class="site-footer" role="contentinfo">

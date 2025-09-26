@@ -12,3 +12,18 @@
 .navbar-nav .nav-link:focus {
   color: var(--brand); /* EN: Highlight color | SV: Markeringsfärg */
 }
+
+/* ==============================================
+  HERO STYLES (Bootstrap-friendly)
+  EN: Subtle background, generous spacing, readable line-length.
+  SV: Diskret bakgrund, generöst mellanrum, bra läslängd.
+================================================= */
+.hero { 
+  background: var(--surface); /* SV: Ljus yta för att lyfta innehållet */
+}
+.hero .lead {
+  color: var(--muted);
+}
+.hero-caption {
+  max-width: 50ch; /* EN: Keeps caption readable | SV: Bättre läsbarhet */
+}
