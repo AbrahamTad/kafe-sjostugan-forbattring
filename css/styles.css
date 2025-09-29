@@ -1,14 +1,15 @@
 /* ======================================================
   BASE TOKENS
-  EN: Colors, spacing; tweak as needed
-  SV: Färger, mellanrum; justera vid behov
 ====================================================== */
 :root{
+  --forest-600:#0f766e;     /* deep forest */
+  --forest-500:#14b8a6;     /* teal forest */
+  --lake-500:#2563eb;       /* lake blue  */
   --text:#1d1d1f;
   --surface:#f5f5f7;
-  --ink:hwb(138 76% 5%);           /* brand navy */
-  --ink-contrast:#ffffff;  /* text on brand */
-  --ring:0 0 0 3px rgba(10,111,231,.35);
+  --ink:#1d1d1f;            /* dark ink for text */
+  --ink-contrast:#ffffff;   /* text on brand */
+  --ring:0 0 0 3px rgba(37,99,235,.35);
 }
 
 *{ box-sizing:border-box; }
@@ -25,33 +26,89 @@ body{
   padding:.5rem .75rem; border-radius:.5rem;
 }
 
-/* Header hairline */
-.site-header .navbar{ box-shadow:0 1px 0 rgba(0,0,0,.06); }
+/* ================================
+   HEADER LINK COLORS — HIGH CONTRAST
+================================ */
+.site-header .navbar,
+.glass-nav{
+  /* Bootstrap navbar vars */
+  --header-link:#1d1d1f;
+  --header-link-hover:#0b0c0f;
 
+  --bs-navbar-color:var(--header-link);
+  --bs-navbar-hover-color:var(--header-link-hover);
+  --bs-navbar-active-color:var(--header-link-hover);
+  --bs-navbar-brand-color:var(--header-link);
+  --bs-navbar-toggler-border-color:transparent;
+}
 
-.brand-pill img{ display:block; }
-
-/* Nav links: comfy hit area + hover */
-.navbar-nav .nav-link{
+/* Links (padding + focus/hover) — color driven by vars above */
+.site-header .navbar .nav-link{
+  color:var(--header-link) !important;
   padding:.5rem .9rem;
   border-radius:.75rem;
-  color:var(--text);
+  position:relative;
 }
-.navbar-nav .nav-link:hover,
-.navbar-nav .nav-link:focus{
+.site-header .navbar .nav-link:hover,
+.site-header .navbar .nav-link:focus{
+  color:var(--header-link-hover) !important;
   background:var(--surface);
-  color:var(--text);
   text-decoration:none;
 }
-.navbar-nav .nav-link.active{
+.site-header .navbar .nav-link.active,
+.site-header .navbar .nav-link[aria-current="page"]{
+  color:var(--header-link-hover) !important;
   font-weight:600;
-  background:rgba(29,53,87,.06);
+}
+.site-header .navbar .navbar-toggler{ color:var(--header-link); }
+
+/* Underline accent (gradient) */
+.navbar-nav .nav-link::after{
+  content:"";
+  position:absolute; left:12px; right:12px; bottom:6px;
+  height:2px;
+  background:linear-gradient(90deg, var(--forest-500), var(--lake-500));
+  transform:scaleX(0); transform-origin:center;
+  transition:transform .25s ease;
+  border-radius:2px;
+}
+.navbar-nav .nav-link:hover::after,
+.navbar-nav .nav-link:focus::after,
+.navbar-nav .nav-link.active::after{
+  transform:scaleX(1);
+}
+
+/* ===========================
+  Glassy navbar
+=========================== */
+.glass-nav{
+  background:rgba(255,255,255,.75);
+  backdrop-filter:blur(10px);
+  border:1px solid rgba(0,0,0,.06);
+  border-radius:16px;
+  margin:.5rem .75rem;
+  transition:background .25s, box-shadow .25s, border-color .25s;
+}
+.site-header.is-scrolled .glass-nav{
+  background:#fff;
+  border-color:rgba(0,0,0,.08);
+  box-shadow:0 10px 30px rgba(0,0,0,.08);
+}
+
+/* Brand pill + nature gradient */
+.brand-pill{
+  display:inline-block;
+  padding:.35rem .55rem;
+  border-radius:999px;
+}
+.brand-pill img{ display:block; }
+.brand-nature{
+  background:linear-gradient(135deg, var(--forest-600), var(--lake-500));
+  box-shadow:0 2px 0 rgba(0,0,0,.04);
 }
 
 /* ======================================================
   HERO CAROUSEL
-  EN: Cover-style height + dark overlay for readable captions
-  SV: Cover-höjd + mörk overlay för läsbar text
 ====================================================== */
 .hero-banner{ position:relative; background:#000; }
 .hero-banner .carousel-item{
@@ -68,12 +125,13 @@ body{
   position:absolute; inset:0;
   background:linear-gradient(180deg, rgba(0,0,0,.45), rgba(0,0,0,.35) 60%, rgba(0,0,0,.5));
 }
-.carousel-caption{
-  text-shadow:0 2px 8px rgba(0,0,0,.35);
-}
+.carousel-caption{ text-shadow:0 2px 8px rgba(0,0,0,.35); }
 
-/* Cards polish */
+/* Cards & footer polish */
 .card-title{ margin-bottom:.25rem; }
-
-/* Footer */
 .site-footer a{ text-decoration:underline; }
+
+/* Mobile polish */
+@media (max-width:991.98px){
+  .glass-nav{ border-radius:0; margin:0; }
+}
