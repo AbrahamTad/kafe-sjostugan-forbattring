@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Aktuella evenemang – Kafé Sjöstugan</title>
+  <meta name="description" content="Musik, kultur och aktiviteter på Kafé Sjöstugan."/>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <!-- HEADER: 'Aktuellt' aktiv -->
+   <header class="site-header sticky-top" role="banner" data-navbar>
+      <nav class="navbar navbar-expand-lg glass-nav py-2">
+        <div class="container align-items-center">
+          <!-- Brand -->
+          <a href="index.html" aria-label="Hem"
+                      >
+            <img
+              src="images/loggabla275.gif"
+              alt="Kafé Sjöstugan logotyp"
+              width="150"
+              height="40"
+            />
+          </a>
+
+          <!-- Toggler -->
+          <button
+            class="navbar-toggler border-0"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#siteNav"
+            aria-controls="siteNav"
+            aria-expanded="false"
+            aria-label="Öppna menyn"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <!-- Nav -->
+          <div
+            class="collapse navbar-collapse"
+            id="siteNav"
+            role="navigation"
+            aria-label="Huvudmeny"
+          >
+            <!-- EN: mx-auto centers links | SV: mx-auto centrerar länkar -->
+            <ul class="navbar-nav mx-auto gap-lg-3">
+              <li class="nav-item">
+                <a class="nav-link" href="menu.html">Mat &amp; Dryck</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="events.html">Aktuellt</a>
+              </li>
+              <li class="nav-item d-lg-none">
+                <!-- EN: Mobile CTA visible inside the menu
+                 SV: Mobil-CTA visas i menyn -->
+                <a
+                  class="btn btn-forest w-100 mt-2 rounded-pill"
+                  href="contact.html"
+                  >Boka bord</a
+                >
+              </li>
+            </ul>
+
+            <!-- Right CTA (desktop) -->
+            <a
+              class="btn btn-forest rounded-pill d-none d-lg-inline-flex shadow-sm"
+              href="contact.html"
+            >
+              Boka bord
+            </a>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+  <main id="main">
+    <!-- Intro -->
+    <section class="py-5 bg-light">
+      <div class="container text-center">
+        <h1 class="display-6 fw-bold mb-2">Aktuella evenemang</h1>
+        <p class="lead text-muted mb-0">Konserter, utställningar och workshops – året runt.</p>
+      </div>
+    </section>
+
+    <!-- Event list (cards) -->
+    <section class="py-5">
+      <div class="container">
+        <div class="row g-4">
+          <!-- Event card -->
+          <div class="col-md-6 col-lg-4">
+            <article class="card h-100 shadow-sm">
+              <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=1200&auto=format&fit=crop"
+                   class="card-img-top" alt="Live musik på scen" loading="lazy">
+              <div class="card-body">
+                <h2 class="h5 card-title mb-1">Live: Trio vid vattnet</h2>
+                <p class="text-muted small mb-2">Lör 14 sep · 18:00</p>
+                <p class="card-text">Akustisk konsert med låtar från folktraditionen. Fika & lättare mat finns.</p>
+                <a href="#" class="btn btn-outline-primary rounded-pill">Läs mer</a>
+              </div>
+            </article>
+          </div>
+
+          <div class="col-md-6 col-lg-4">
+            <article class="card h-100 shadow-sm">
+              <img src="https://images.unsplash.com/photo-1515165562835-c3b8c2e9f4a2?q=80&w=1200&auto=format&fit=crop"
+                   class="card-img-top" alt="Utställning på vägg" loading="lazy">
+              <div class="card-body">
+                <h2 class="h5 card-title mb-1">Utställning: Natur & Form</h2>
+                <p class="text-muted small mb-2">1–30 okt</p>
+                <p class="card-text">Lokala konstnärer ställer ut målningar inspirerade av Nationalstadsparken.</p>
+                <a href="#" class="btn btn-outline-primary rounded-pill">Läs mer</a>
+              </div>
+            </article>
+          </div>
+
+          <div class="col-md-6 col-lg-4">
+            <article class="card h-100 shadow-sm">
+              <img src="https://images.unsplash.com/photo-1520975764746-5bcf03f1ae83?q=80&w=1200&auto=format&fit=crop"
+                   class="card-img-top" alt="Workshop med deltagare" loading="lazy">
+              <div class="card-body">
+                <h2 class="h5 card-title mb-1">Workshop: Surdegsbakning</h2>
+                <p class="text-muted small mb-2">Sön 22 sep · 10:00</p>
+                <p class="card-text">Lär dig baka med egen surdeg. Inkluderar fika och recept.</p>
+                <a href="#" class="btn btn-outline-primary rounded-pill">Anmäl dig</a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer py-5 border-top">
+    <div class="container">
+      <p class="small text-muted mb-0">© <span id="year"></span> Kafé Sjöstugan</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/main.js" defer></script>
+</body>
+</html>
