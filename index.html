@@ -15,6 +15,11 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
       rel="stylesheet"
     />
+    <!--  Font Awesome  -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
 
     <!-- Bootstrap CSS -->
     <link
@@ -43,8 +48,7 @@
       <nav class="navbar navbar-expand-lg glass-nav py-2">
         <div class="container align-items-center">
           <!-- Brand -->
-          <a href="index.html" aria-label="Hem"
-                      >
+          <a href="index.html" aria-label="Hem">
             <img
               src="images/loggabla275.gif"
               alt="Kafé Sjöstugan logotyp"
@@ -76,7 +80,7 @@
             <!-- EN: mx-auto centers links | SV: mx-auto centrerar länkar -->
             <ul class="navbar-nav mx-auto gap-lg-3">
               <li class="nav-item">
-                <a class="nav-link" href="menu.html">Mat &amp; Dryck</a>
+                <a class="nav-link" href="meny.html">Mat &amp; Dryck</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="events.html">Aktuellt</a>
@@ -86,7 +90,7 @@
                  SV: Mobil-CTA visas i menyn -->
                 <a
                   class="btn btn-forest w-100 mt-2 rounded-pill"
-                  href="contact.html"
+                  href="boka.html"
                   >Boka bord</a
                 >
               </li>
@@ -95,7 +99,7 @@
             <!-- Right CTA (desktop) -->
             <a
               class="btn btn-forest rounded-pill d-none d-lg-inline-flex shadow-sm"
-              href="contact.html"
+              href="boka.html"
             >
               Boka bord
             </a>
@@ -146,8 +150,8 @@
             <div class="carousel-item active">
               <img
                 class="d-block w-100 hero-img"
-                src="images/frukost.avif"
-                alt="frukost"
+                src="images/flower1.png"
+                alt="flower"
                 aria-hidden="true"
                 loading="eager"
               />
@@ -164,7 +168,9 @@
                   <a class="btn btn-primary btn-lg" href="meny.html"
                     >Se menyn</a
                   >
-                  <a class="btn btn-outline-light btn-lg" href="events.html"
+                  <a
+                    class="btn-hero2 btn btn-outline-light btn-lg"
+                    href="events.html"
                     >Aktuella evenemang</a
                   >
                 </div>
@@ -174,14 +180,14 @@
             <div class="carousel-item">
               <img
                 class="d-block w-100 hero-img"
-                src="images/pankaka.avif"
-                alt=""
+                src="images/frukost.avif"
+                alt="mat"
                 aria-hidden="true"
                 loading="lazy"
               />
               <div class="hero-overlay"></div>
               <div class="carousel-caption">
-                <h2 class="h1 fw-bold">Hembakat & närproducerat</h2>
+                <h2 class="h1 fw-bold">Smak av Kafsjötungatn</h2>
                 <p>Vi väljer råvaror med omsorg – ekologiskt och fairtrade.</p>
               </div>
             </div>
@@ -189,7 +195,7 @@
             <div class="carousel-item">
               <img
                 class="d-block w-100 hero-img"
-                src="images/utsikt3.png"
+                src="images/hagaparken.jpg"
                 alt=""
                 aria-hidden="true"
                 loading="lazy"
@@ -197,7 +203,7 @@
               <div class="hero-overlay"></div>
               <div class="carousel-caption">
                 <h2 class="h1 fw-bold">Nära naturen</h2>
-                <p>Njut av fika vid vattnet i Nationalstadsparken.</p>
+                <p>Njut av fika vid vattnet i Hagaparken.</p>
               </div>
             </div>
           </div>
@@ -313,7 +319,7 @@
 
       <!-- Thumb strip -->
       <section class="py-4 bg-light">
-        <div class="container">
+        <div class="container thumb-strip">
           <div class="row g-3">
             <div class="col-12 col-md-4">
               <img
@@ -326,16 +332,16 @@
             <div class="col-12 col-md-4">
               <img
                 class="img-fluid rounded-3 shadow-sm"
-                src="images/200brygga.jpg"
-                alt="Kaféets uteservering"
+                src="images/utsikt3.png"
+                alt="Utsikt mot vattnet"
                 loading="lazy"
               />
             </div>
             <div class="col-12 col-md-4">
               <img
                 class="img-fluid rounded-3 shadow-sm"
-                src="images/vaten2.png"
-                alt="Utsikt mot vattnet"
+                src="images/kanelbullar.jpeg"
+                alt="kanelbullar"
                 loading="lazy"
               />
             </div>
@@ -348,6 +354,7 @@
     <footer class="site-footer py-5 border-top">
       <div class="container">
         <div class="row g-4">
+          <!-- Kontakt -->
           <section class="col-md-4" aria-labelledby="kontakt">
             <h2 id="kontakt" class="h5">Kontakt</h2>
             <address class="mb-0">
@@ -357,18 +364,33 @@
               <a href="mailto:info@kafesjostugan.se">info@kafesjostugan.se</a>
             </address>
           </section>
-          <section class="col-md-4" aria-labelledby="oppet">
+
+          <!-- Öppettider (hidden on small screens) -->
+          <section class="col-md-4 d-none d-md-block" aria-labelledby="oppet">
             <h2 id="oppet" class="h5">Öppettider</h2>
             <p class="mb-0">Lör–Sön 11–16 (säsongsvariationer kan förekomma)</p>
           </section>
+
+          <!-- Följ oss -->
           <section class="col-md-4" aria-labelledby="some">
             <h2 id="some" class="h5">Följ oss</h2>
-            <p class="mb-0">
-              <a href="#" aria-label="Facebook">Facebook</a> ·
-              <a href="#" aria-label="Instagram">Instagram</a>
-            </p>
+            <div class="d-flex gap-3 social-icons">
+              <a href="#" aria-label="Facebook" class="fs-4"
+                ><i class="fab fa-facebook"></i
+              ></a>
+              <a href="#" aria-label="Instagram" class="fs-4"
+                ><i class="fab fa-instagram"></i
+              ></a>
+              <a href="#" aria-label="YouTube" class="fs-4"
+                ><i class="fab fa-youtube"></i
+              ></a>
+              <a href="#" aria-label="TikTok" class="fs-4"
+                ><i class="fab fa-tiktok"></i
+              ></a>
+            </div>
           </section>
         </div>
+
         <p class="legal text-muted small mt-4 mb-0">
           © <span id="year"></span> Kafé Sjöstugan – Ekologiskt &amp;
           närproducerat.
