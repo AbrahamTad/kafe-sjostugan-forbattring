@@ -51,6 +51,7 @@ body {
   --bs-navbar-active-color: var(--header-link-hover);
   --bs-navbar-brand-color: var(--header-link);
   --bs-navbar-toggler-border-color: transparent;
+  /* backgrounyd: linear-gradient(135deg, #ebc9af, #c9cb94, #F5E0B7); */
 }
 
 /* Links (padding + focus/hover) — color driven by vars above */
@@ -82,7 +83,7 @@ body {
   padding-bottom: 0 !important;
 }
 
-/* Underline accent (gradient) */
+/* Underline  (gradient) */
 .navbar-nav .nav-link::after {
   content: "";
   position: absolute;
@@ -106,7 +107,7 @@ body {
   Glassy navbar
 =========================== */
 .glass-nav {
-  background: rgba(255, 255, 255, 0.75);
+  background: rgba(255, 255, 255, 0.542);
   backdrop-filter: blur(10px);
   border: 1px solid rgba(0, 0, 0, 0.06);
   border-radius: 0 !important;
