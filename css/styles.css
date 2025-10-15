@@ -1,39 +1,31 @@
+@charset "UTF-8";
 /* ======================================================
-   🎨 Färgvariabler och grundinställningar
+   Färgvariabler och grundinställningar
    (Används för konsekvent design i hela webbplatsen)
 ====================================================== */
-:root {
-  --forest-600: #0f766e;     /* Mörk grön – primär färg */
-  --forest-500: #14b8a6;     /* Ljusare grön – hover eller accent */
-  --lake-500: #2563eb;       /* Blå ton – länk eller gradient */
-  --text: #1d1d1f;           /* Huvudtextfärg */
-  --surface: #f5f5f7;        /* Ljus bakgrund */
-  --ink-contrast: #fff;      /* Vit text för kontrast */
-  --ring: 0 0 0 3px rgba(37, 99, 235, 0.35); /* Fokusring */
-}
-
 /* ======================================================
-   🧱 Grundstruktur – typografi och boxmodell
+    Grundstruktur – typografi och boxmodell
 ====================================================== */
 * {
-  box-sizing: border-box; /* Säkerställer att padding inte ökar elementets bredd */
+  box-sizing: border-box;
 }
 
 body {
   margin: 0;
   font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
-  color: var(--text);
+  color: #1d1d1f;
 }
 
 /* ======================================================
-   ♿ Skip-link – för tangentbordsnavigering (a11y)
+    Skip-link – för tangentbordsnavigering (a11y)
 ====================================================== */
 .skip-link {
   position: absolute;
-  left: -9999px; /* Dold utanför skärmen */
+  left: -9999px;
 }
 .skip-link:focus {
-  left: 1rem; top: 1rem; /* Synlig när den får fokus */
+  left: 1rem;
+  top: 1rem;
   background: #000;
   color: #fff;
   padding: 0.5rem 0.75rem;
@@ -41,65 +33,75 @@ body {
 }
 
 /* ======================================================
-   🔝 Header och navigering
+    Header och navigering
 ====================================================== */
 .site-header,
 .glass-nav {
-  --header-link: #1d1d1f;          /* Standardfärg för länkar */
-  --header-link-hover: #0b0c0f;    /* Hoverfärg */
+  --header-link: #1d1d1f;
+  --header-link-hover: #0b0c0f;
   --bs-navbar-color: var(--header-link);
   --bs-navbar-hover-color: var(--header-link-hover);
   --bs-navbar-active-color: var(--header-link-hover);
   --bs-navbar-brand-color: var(--header-link);
   --bs-navbar-toggler-border-color: transparent;
   margin: 0 !important;
-  padding: 0 !important;
 }
-
-/* Navigeringslänkar */
-.site-header .navbar .nav-link {
+.site-header .navbar .nav-link,
+.glass-nav .navbar .nav-link {
   color: var(--header-link) !important;
   padding: 0.5rem 0.9rem;
   border-radius: 0.75rem;
   position: relative;
   text-decoration: none;
   transition: background 0.3s ease;
+  padding-top: 0.75rem !important;
+  padding-bottom: 0.75rem !important;
 }
-
-/* Hover, fokus och aktivt tillstånd */
 .site-header .navbar .nav-link:hover,
 .site-header .navbar .nav-link:focus,
 .site-header .navbar .nav-link.active,
-.site-header .navbar .nav-link[aria-current="page"] {
+.site-header .navbar .nav-link[aria-current="page"],
+.glass-nav .navbar .nav-link:hover,
+.glass-nav .navbar .nav-link:focus,
+.glass-nav .navbar .nav-link.active,
+.glass-nav .navbar .nav-link[aria-current="page"] {
   color: var(--header-link-hover) !important;
-  background: var(--surface);
+  background: #f5f5f7;
   font-weight: 600;
 }
-
-/* Understrykning med färggradient (animation) */
-.navbar-nav .nav-link::after {
+.site-header .navbar .nav-link::after,
+.glass-nav .navbar .nav-link::after {
   content: "";
   position: absolute;
-  left: 12px; right: 12px; bottom: 6px;
+  left: 12px;
+  right: 12px;
+  bottom: 6px;
   height: 2px;
-  background: linear-gradient(90deg, var(--forest-500), var(--lake-500));
+  background: linear-gradient(90deg, #14b8a6, #2563eb);
   transform: scaleX(0);
   transform-origin: center;
   transition: transform 0.25s ease;
   border-radius: 2px;
 }
-.navbar-nav .nav-link:hover::after,
-.navbar-nav .nav-link:focus::after,
-.navbar-nav .nav-link.active::after {
-  transform: scaleX(1); /* Synlig linje vid hover/fokus */
+.site-header .navbar .nav-link:hover::after,
+.site-header .navbar .nav-link:focus::after,
+.site-header .navbar .nav-link.active::after,
+.glass-nav .navbar .nav-link:hover::after,
+.glass-nav .navbar .nav-link:focus::after,
+.glass-nav .navbar .nav-link.active::after {
+  transform: scaleX(1);
 }
 
-/* Genomskinlig och suddig navbar-effekt */
+/* Genomskinlig navbar */
 .glass-nav {
-  background: rgba(255, 255, 255, 0.35); /* Lätt transparens */
-  backdrop-filter: blur(10px);            /* Suddig bakgrund */
+  background: rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(10px);
   border: 1px solid rgba(0, 0, 0, 0.06);
-  transition: background 0.25s, box-shadow 0.25s;
+  border-radius: 0 !important;
+  margin: 0 !important;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  transition: background 0.25s, box-shadow 0.25s, border-color 0.25s;
   top: 0;
 }
 
@@ -107,16 +109,18 @@ body {
 .brand-pill {
   display: inline-block;
   padding: 0.35rem 0.55rem;
-  border-radius: 999px; /* Rund form */
+  border-radius: 999px;
 }
-.brand-pill img { display: block; }
-.brand-nature {
-  background: linear-gradient(135deg, var(--forest-600), var(--lake-500));
+.brand-pill img {
+  display: block;
+}
+.brand-pill.brand-nature {
+  background: linear-gradient(135deg, #0f766e, #2563eb);
   box-shadow: 0 2px 0 rgba(0, 0, 0, 0.04);
 }
 
 /* ======================================================
-    Hero-sektion / bildspel
+   Hero-sektion / bildspel
 ====================================================== */
 .hero-banner {
   position: relative;
@@ -125,38 +129,57 @@ body {
 }
 .hero-banner .carousel-item {
   position: relative;
-  height: 89vh; /* Nästan full höjd */
+  height: 89vh;
   overflow: hidden;
 }
-.hero-img {
-  width: 100%; height: 100%;
-  object-fit: cover; /* Fyll ut utan att förvrängas */
-}
-.hero-overlay {
-  position: absolute;
-  inset: 0; /* Täcker hela bilden */
-}
-.btn-hero2 { color: #fff; } /* Vit knapptext */
-.carousel-caption {
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.35); /* Gör texten läsbar över bild */
-}
-
-/* Anpassning för mindre skärmar */
 @media (max-width: 991.98px) {
-  .hero-banner .carousel-item { height: 65vh; }
+  .hero-banner .carousel-item {
+    height: 65vh;
+  }
 }
 @media (max-width: 575.98px) {
-  .hero-banner .carousel-item { height: 55vh; }
-  .carousel-caption h1,
-  .carousel-caption h2 { font-size: 1.5rem; }
-  .carousel-caption p { font-size: 1rem; }
+  .hero-banner .carousel-item {
+    height: 55vh;
+  }
+}
+.hero-banner .hero-img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+}
+.hero-banner .hero-overlay {
+  position: absolute;
+  inset: 0;
+}
+.hero-banner .carousel-caption {
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+}
+@media (max-width: 575.98px) {
+  .hero-banner .carousel-caption h1,
+  .hero-banner .carousel-caption h2 {
+    font-size: 1.5rem;
+  }
+}
+@media (max-width: 575.98px) {
+  .hero-banner .carousel-caption p {
+    font-size: 1rem;
+  }
+}
+.hero-banner .btn-hero2 {
+  color: #fff;
 }
 
 /* ======================================================
     Kort & Footer
 ====================================================== */
-.card-title { margin-bottom: 0.25rem; } /* Mindre mellanrum */
-.site-footer a { text-decoration: underline; } /* Tydliga länkar */
+.card-title {
+  margin-bottom: 0.25rem;
+}
+
+.site-footer a {
+  text-decoration: underline;
+}
 
 /* ======================================================
     Bilder & öppettider
@@ -165,11 +188,19 @@ body {
 .thumb-strip img,
 .card img {
   width: 100%;
-  border-radius: 8px; /* Rundade hörn */
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Mjuk skugga */
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
-.thumb-strip img { height: 350px; }
-.card img { height: 300px; object-fit: cover; }
+
+.thumb-strip img {
+  height: 350px;
+}
+
+.card img {
+  height: 300px;
+  -o-object-fit: cover;
+  object-fit: cover;
+}
 
 /* ======================================================
     Sociala medier ikoner
@@ -178,10 +209,18 @@ body {
   color: #b0b0b0;
   transition: color 0.3s ease;
 }
-.social-icons a:hover .fa-facebook { color: #1877f2; }  /* Facebook blå */
-.social-icons a:hover .fa-instagram { color: #e1306c; } /* Instagram rosa */
-.social-icons a:hover .fa-youtube { color: #ff0000; }   /* YouTube röd */
-.social-icons a:hover .fa-tiktok { color: #000; }       /* TikTok svart */
+.social-icons a:hover .fa-facebook {
+  color: #1877f2;
+}
+.social-icons a:hover .fa-instagram {
+  color: #e1306c;
+}
+.social-icons a:hover .fa-youtube {
+  color: #ff0000;
+}
+.social-icons a:hover .fa-tiktok {
+  color: #000;
+}
 
 /* ======================================================
     Formulärdesign
@@ -192,11 +231,11 @@ form .form-control {
   padding: 0.75rem;
 }
 form .btn-forest {
-  background-color: var(--forest-600);
+  background-color: #0f766e;
   color: #fff;
   font-weight: 600;
   transition: background 0.3s ease;
 }
 form .btn-forest:hover {
-  background-color: var(--forest-500);
+  background-color: #14b8a6;
 }

@@ -1,0 +1,262 @@
+/* ======================================================
+   Färgvariabler och grundinställningar
+   (Används för konsekvent design i hela webbplatsen)
+====================================================== */
+$forest-600: #0f766e; 
+$forest-500: #14b8a6; 
+$lake-500: #2563eb;   
+$text: #1d1d1f;       
+$surface: #f5f5f7;    
+$ink-contrast: #fff;  
+$ring: 0 0 0 3px rgba(37, 99, 235, 0.35); 
+
+/* ======================================================
+    Grundstruktur – typografi och boxmodell
+====================================================== */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  color: $text;
+}
+
+/* ======================================================
+    Skip-link – för tangentbordsnavigering (a11y)
+====================================================== */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+
+  &:focus {
+    left: 1rem;
+    top: 1rem;
+    background: #000;
+    color: #fff;
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.5rem;
+  }
+}
+
+/* ======================================================
+   🔝 Header och navigering
+====================================================== */
+.site-header,
+.glass-nav {
+  --header-link: #1d1d1f;
+  --header-link-hover: #0b0c0f;
+  --bs-navbar-color: var(--header-link);
+  --bs-navbar-hover-color: var(--header-link-hover);
+  --bs-navbar-active-color: var(--header-link-hover);
+  --bs-navbar-brand-color: var(--header-link);
+  --bs-navbar-toggler-border-color: transparent;
+  margin: 0 !important;
+
+  .navbar {
+    .nav-link {
+      color: var(--header-link) !important;
+      padding: 0.5rem 0.9rem;
+      border-radius: 0.75rem;
+      position: relative;
+      text-decoration: none;
+      transition: background 0.3s ease;
+      padding-top: 0.75rem !important;
+      padding-bottom: 0.75rem !important;
+
+      &:hover,
+      &:focus,
+      &.active,
+      &[aria-current="page"] {
+        color: var(--header-link-hover) !important;
+        background: $surface;
+        font-weight: 600;
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        left: 12px;
+        right: 12px;
+        bottom: 6px;
+        height: 2px;
+        background: linear-gradient(90deg, $forest-500, $lake-500);
+        transform: scaleX(0);
+        transform-origin: center;
+        transition: transform 0.25s ease;
+        border-radius: 2px;
+      }
+
+      &:hover::after,
+      &:focus::after,
+      &.active::after {
+        transform: scaleX(1);
+      }
+    }
+  }
+}
+
+/* Genomskinlig navbar */
+.glass-nav {
+  background: rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 0 !important;
+  margin: 0 !important;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  transition: background 0.25s, box-shadow 0.25s, border-color 0.25s;
+  top: 0;
+}
+
+/* Logotyp med färggradient */
+.brand-pill {
+  display: inline-block;
+  padding: 0.35rem 0.55rem;
+  border-radius: 999px;
+
+  img {
+    display: block;
+  }
+
+  &.brand-nature {
+    background: linear-gradient(135deg, $forest-600, $lake-500);
+    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.04);
+  }
+}
+
+/* ======================================================
+   🌅 Hero-sektion / bildspel
+====================================================== */
+.hero-banner {
+  position: relative;
+  background: #000;
+  margin: 0 !important;
+
+  .carousel-item {
+    position: relative;
+    height: 89vh;
+    overflow: hidden;
+
+    @media (max-width: 991.98px) {
+      height: 65vh;
+    }
+
+    @media (max-width: 575.98px) {
+      height: 55vh;
+    }
+  }
+
+  .hero-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+  }
+
+  .carousel-caption {
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+
+    h1,
+    h2 {
+      @media (max-width: 575.98px) {
+        font-size: 1.5rem;
+      }
+    }
+
+    p {
+      @media (max-width: 575.98px) {
+        font-size: 1rem;
+      }
+    }
+  }
+
+  .btn-hero2 {
+    color: #fff;
+  }
+}
+
+/* ======================================================
+   📦 Kort & Footer
+====================================================== */
+.card-title {
+  margin-bottom: 0.25rem;
+}
+
+.site-footer {
+  a {
+    text-decoration: underline;
+  }
+}
+
+/* ======================================================
+   🖼️ Bilder & öppettider
+====================================================== */
+.open_hr,
+.thumb-strip img,
+.card img {
+  width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.thumb-strip img {
+  height: 350px;
+}
+
+.card img {
+  height: 300px;
+  object-fit: cover;
+}
+
+/* ======================================================
+   📱 Sociala medier ikoner
+====================================================== */
+.social-icons {
+  a {
+    color: #b0b0b0;
+    transition: color 0.3s ease;
+
+    &:hover {
+      .fa-facebook {
+        color: #1877f2;
+      }
+      .fa-instagram {
+        color: #e1306c;
+      }
+      .fa-youtube {
+        color: #ff0000;
+      }
+      .fa-tiktok {
+        color: #000;
+      }
+    }
+  }
+}
+
+/* ======================================================
+   📝 Formulärdesign
+====================================================== */
+form {
+  .form-control {
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    padding: 0.75rem;
+  }
+
+  .btn-forest {
+    background-color: $forest-600;
+    color: #fff;
+    font-weight: 600;
+    transition: background 0.3s ease;
+
+    &:hover {
+      background-color: $forest-500;
+    }
+  }
+}
