@@ -1,12 +1,12 @@
 // =======================================
-// EN: Footer year | SV: Årtal i sidfoten
+//  Årtal i sidfoten
 // =======================================
 const yearEl = document.getElementById("year");
 if (yearEl) yearEl.textContent = new Date().getFullYear(); // Current year 
 
 
-// EN: Add 'is-scrolled' when page is moved a bit (stronger navbar look)
-// SV: Lägg till 'is-scrolled' när sidan rullas (tydligare navbar)
+
+//  Lägg till 'is-scrolled' när sidan rullas (tydligare navbar)
 const header = document.querySelector('[data-navbar]');
 const onScroll = () => {
   if (!header) return;
